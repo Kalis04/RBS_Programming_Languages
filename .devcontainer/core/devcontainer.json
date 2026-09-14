@@ -1,0 +1,37 @@
+{
+  "name": "BS0030 Core — Python, C++ and JavaScript",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "remoteUser": "vscode",
+  "hostRequirements": {
+    "cpus": 2
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/node:2": {
+      "version": "24.20.0",
+      "npmVersion": "none",
+      "pnpmVersion": "none",
+      "nodeGypDependencies": false
+    }
+  },
+  "postCreateCommand": "bash scripts/check-core-environment.sh",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python3",
+        "python.terminal.activateEnvironment": false,
+        "C_Cpp.default.compilerPath": "/usr/bin/g++",
+        "C_Cpp.default.cppStandard": "c++20",
+        "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-vscode.cpptools"
+      ]
+    }
+  }
+}

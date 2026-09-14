@@ -1,0 +1,14 @@
+# Tiny Language grammar used in BS0030 Week 2
+#
+# This is EBNF-like notation matching the lecture.
+# { ... } means "zero or more repetitions".
+
+program     ::= { statement } expression EOF ;
+statement   ::= "let" identifier "=" expression ";" ;
+
+expression  ::= term { ("+" | "-") term } ;
+term        ::= factor { ("*" | "/") factor } ;
+factor      ::= number | identifier | "(" expression ")" ;
+
+identifier  ::= letter { letter | digit | "_" } ;
+number      ::= digit { digit } ;
