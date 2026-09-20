@@ -18,13 +18,17 @@ Riga Business School · Riga Technical University (RTU)
 
 ## Current practical work
 
-### Week 2 — Syntax, BNF/EBNF, Parsing, and ASTs
+### Week 3 — Functional Programming I: Clojure
 
-Week 1 concentrated on introductory reading, language history, and course orientation. **Week 2 is the first hands-on programming lab.**
+Week 3 is the first major paradigm shift in BS0030. The practical is REPL-oriented and focuses on functions, immutable data, higher-order collection operations, recursion, and translating an imperative loop into a functional transformation pipeline.
 
-➡️ **[Open the Week 2 Lab](labs/week02/README.md)**
+➡️ **[Open the Week 3 Lab](labs/week03/README.md)**
 
-The lab uses Python in the **BS0030 Core** GitHub Codespace.
+The lab uses the **BS0030 Functional — Clojure** GitHub Codespace. The Week 3 project pins the Clojure language to **1.12.6**.
+
+Previous practical:
+
+- [Week 2 — Syntax, BNF/EBNF, Parsing, and ASTs](labs/week02/README.md)
 
 ## Start here: fork once, use your fork all semester
 
@@ -53,22 +57,23 @@ Sync new instructor material into the same fork later
 > **Codespace = disposable language laboratory.**  
 > **GitHub fork = permanent course portfolio.**
 
-### First setup for Week 2
+### Setup for Week 3
 
-1. Sign in to GitHub.
-2. Open the public course repository.
-3. Click **Fork** and create your own fork under your GitHub account.
-4. Open **your fork**, not the original `ValRCS` repository.
-5. Create a Codespace for your fork.
-6. Select the **BS0030 Core — Python, C++ and JavaScript** Dev Container configuration.
-7. Wait for VS Code in the browser to finish building the environment.
-8. In the terminal, from the repository root, run:
+If you already created your fork in Week 2, **keep using the same fork**. First use **Sync fork** / **Update branch** on GitHub so that your fork contains the new Week 3 material.
+
+1. Open **your fork**, not the original `ValRCS` repository.
+2. Create a new Codespace for your fork, or rebuild an existing Codespace with the Week 3 configuration.
+3. Select the **BS0030 Functional — Clojure** Dev Container configuration.
+4. Wait for VS Code in the browser to finish building the environment.
+5. In the terminal, from the repository root, run:
 
 ```bash
-bash scripts/check-core-environment.sh
+bash scripts/check-functional-environment.sh
 ```
 
-9. Continue with the [Week 2 Lab](labs/week02/README.md).
+6. Continue with the [Week 3 Lab](labs/week03/README.md).
+
+The functional container includes Java, the Clojure CLI, Git, and the Calva VS Code extension. The command-line Clojure REPL remains the reference environment for the lab.
 
 Local development is allowed, but local setup is the student's responsibility. Assessed code must run in the designated course Codespace.
 
@@ -83,20 +88,20 @@ Before starting a newly released week:
 3. resolve any conflicts before beginning new work;
 4. open or rebuild the Codespace required for that week's language environment.
 
-To reduce conflicts, instructor-owned files and student-owned files are separated where practical. In Week 2, for example:
+To reduce conflicts, instructor-owned files and student-owned files are separated where practical. In Week 3:
 
 ```text
 Instructor-managed:
-labs/week02/README.md
-labs/week02/assignment.md
-labs/week02/starter/
-labs/week02/examples/
+labs/week03/README.md
+labs/week03/assignment.md
+labs/week03/deps.edn
+labs/week03/starter/
 
 Student-managed:
-labs/week02/work/
+labs/week03/work/
 ```
 
-Do not edit instructor-managed starter files unless the lab explicitly tells you to do so.
+Copy the Week 3 starter file into `work/` once, then make your changes only in the working copy. Do not edit instructor-managed starter files unless the lab explicitly tells you to do so.
 
 ## About the course
 
@@ -139,16 +144,23 @@ By the end of the course, students should be able to explain and compare program
 
 The repository uses several Dev Container configurations during the semester rather than one oversized environment containing every language.
 
-The first published environment is:
+Currently published environments are:
 
 ```text
 .devcontainer/
-└── core/
+├── core/
+│   ├── Dockerfile
+│   └── devcontainer.json
+└── functional/
     ├── Dockerfile
     └── devcontainer.json
 ```
 
-**Core** is used for Week 2 and supports Python, C/C++, Node.js, Git, and SQLite. Later paradigm blocks will add their own environments, such as Clojure/JDK, Prolog, Kotlin, Go, and JavaScript/TypeScript.
+**Core** is used for Week 2 and supports Python, C/C++, Node.js, Git, and SQLite.
+
+**Functional** is used for Weeks 3–4 and provides Java, the Clojure CLI, Git, and Calva. Week 3 pins the Clojure language version in `labs/week03/deps.edn`.
+
+Later paradigm blocks will add their own environments for Prolog, Kotlin, Go, and JavaScript/TypeScript.
 
 Students keep the same GitHub fork even when they create a new Codespace for a different language block.
 
@@ -160,16 +172,24 @@ RBS_BS0030_Programming_Languages/
 ├── LICENSE
 ├── syllabus/
 ├── .devcontainer/
-│   └── core/
+│   ├── core/
+│   └── functional/
 ├── scripts/
-│   └── check-core-environment.sh
+│   ├── check-core-environment.sh
+│   └── check-functional-environment.sh
 ├── lectures/
 ├── labs/
-│   └── week02/
+│   ├── week02/
+│   │   ├── README.md
+│   │   ├── assignment.md
+│   │   ├── grammar-exercises.md
+│   │   ├── examples/
+│   │   ├── starter/
+│   │   └── work/
+│   └── week03/
 │       ├── README.md
 │       ├── assignment.md
-│       ├── grammar-exercises.md
-│       ├── examples/
+│       ├── deps.edn
 │       ├── starter/
 │       └── work/
 ├── assignments/
