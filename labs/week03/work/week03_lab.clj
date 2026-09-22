@@ -23,7 +23,6 @@
 
 (defn invoice-total [price quantity]
   (* price quantity))
-  nil)
 
 ;; -----------------------------------------------------------------------------
 ;; Part 2 — pure functions
@@ -31,19 +30,19 @@
 
 (defn square [x]
   ;; TODO
-  nil)
+  (* x x))
 
 (defn celsius->fahrenheit [c]
   ;; TODO: F = C * 9/5 + 32
-  nil)
-
+  (+ (* c 9/5) 32)
+)
 ;; -----------------------------------------------------------------------------
 ;; Part 3 — functions as values
 ;; -----------------------------------------------------------------------------
 
 (defn apply-twice [f x]
   ;; TODO: apply f to x twice.
-  nil)
+  (f (f x)))
 
 ;; -----------------------------------------------------------------------------
 ;; Part 5 — map
@@ -66,12 +65,12 @@
 
 (defn total-score [student-coll]
   ;; TODO: sum all :score values using reduce.
-  nil)
+  (reduce + (map :score student-coll)))
 
 (defn average-score [student-coll]
   ;; TODO: return the arithmetic mean.
   ;; You may assume the lab dataset is non-empty.
-  nil)
+  (/ (double (total-score student-coll)) (count student-coll)))
 
 ;; -----------------------------------------------------------------------------
 ;; Part 8 — pipeline
@@ -79,7 +78,7 @@
 
 (defn names-at-or-above [student-coll threshold]
   ;; TODO: filter by score, then map to names.
-  nil)
+  (map :name  (passing-students student-coll threshold)))
 
 ;; -----------------------------------------------------------------------------
 ;; Part 9 — recursion
@@ -88,7 +87,9 @@
 (defn sum-recursive [xs]
   ;; TODO: use empty?, first, rest, and recursion.
   ;; Do not use reduce or apply in this function.
-  nil)
+  (if (empty? xs)
+    0
+    (+ (first xs) (sum-recursive (rest xs)))))
 
 ;; -----------------------------------------------------------------------------
 ;; Part 10 — imperative -> functional rewrite
@@ -100,7 +101,11 @@
   ;; 2. square them;
   ;; 3. keep squares > 10;
   ;; 4. count the result.
-  nil)
+  (count 
+    (filter 
+      #(> % 10) 
+        (map square 
+        (filter even? values)))))
 
 ;; -----------------------------------------------------------------------------
 ;; Part 11 — reflection
