@@ -92,12 +92,13 @@ class ParserAndEvaluatorTests(unittest.TestCase):
 
 class StudentAddedTests(unittest.TestCase):
     def test_add_your_own_precedence_or_parentheses_case(self):
-        # TODO 4: Replace this placeholder with a meaningful test.
-        self.skipTest("Replace with your own test")
+        self.assertEqual(run("2 * (3 + 4)"), 14)
 
     def test_add_your_own_let_binding_case(self):
-        # TODO 5: Replace this placeholder with a meaningful test.
-        self.skipTest("Replace with your own test")
+        self.assertEqual(
+            run("let x = 2; let y = x + 3; y * 4"),
+            20,
+        )
 
 
 if __name__ == "__main__":
